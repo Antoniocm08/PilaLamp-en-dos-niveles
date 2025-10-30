@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Actualizar repositorios e instalar MariaDB
+# Actualiza repositorios e instalar MariaDB
 sudo apt update
 sudo apt install -y mariadb-server
 
-#quita la conexion a internet
+#Desactiva el internet 
 sudo ip route del default
 
-# Habilitar y arrancar el servicio (puede llamarse mysql en algunas versiones)
+# Habilitar y arrancar el servicio 
 sudo systemctl enable mariadb || systemctl enable mysql
 sudo systemctl start mariadb || systemctl start mysql
 
-# Crear base de datos y usuario
+# Crear la base de datos y el usuario
 mysql -u root <<EOF
 CREATE DATABASE IF NOT EXISTS gestion_usuarios;
 CREATE USER IF NOT EXISTS 'Antonio'@'%' IDENTIFIED BY '1234';
