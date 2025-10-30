@@ -1,7 +1,7 @@
 ## 🧱 **Pila LAMP en Dos Niveles**
 ### 🚀 Práctica: Despliegue de Aplicación en Infraestructura de Dos Niveles con Vagrant
 
----
+----
 
 ## 📘 **Descripción General**
 
