@@ -29,22 +29,26 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
     ├── captura_apache.png
     ├── captura_mysql.png
     └── screencast_funcionamiento.mp4
-    
-⚙️ Configuración del Entorno con Vagrant
-1. Requisitos Previos
 
-Vagrant
+## ⚙️ **Configuración del Entorno con Vagrant**
 
-VirtualBox
+### 🔧 Requisitos Previos
 
-Git instalado y configurado
+- [Vagrant](https://developer.hashicorp.com/vagrant/downloads)  
+- [VirtualBox](https://www.virtualbox.org/)  
+- Git instalado y configurado  
 
-Repositorio público en GitHub creado para este proyecto
 
-. Estructura de la Infraestructura
-Máquina	Rol	Hostname	Red	Acceso a Internet	Puerto local
-AntonioApache	Servidor Web (Apache + PHP)	carlosgonzapache	NAT + Privada	✅ (solo NAT)	8080 → 80
-AntonioMysql	Servidor de Base de Datos (MySQL)	carlosgonzmysql	Privada	❌	—
+---
+
+### 🧩 **Estructura de la Infraestructura**
+
+| Máquina          | Rol                               | Hostname        | Red             | Acceso a Internet | Puerto local |
+|------------------|------------------------------------|-----------------|-----------------|------------------|---------------|
+| `AntonioApache`  | Servidor Web (Apache + PHP)        | `antonioapache` | NAT + Privada   | ✅ (solo NAT)     | `8080 → 80`   |
+| `AntonioMysql`   | Servidor de Base de Datos (MySQL)  | `antoniomysql`  | Privada         | ❌                | —             |
+
+---
 
 🧱 Fichero Vagrantfile
 Vagrant.configure("2") do |config|
@@ -54,7 +58,7 @@ Vagrant.configure("2") do |config|
     apache.vm.hostname = "Antonioapache"
     apache.vm.network "forwarded_port", guest: 80, host: 8080
     apache.vm.network "private_network", ip: "192.168.56.10"
-    apache.vm.provision "shell", path: "provisioning/apache_provision.sh"
+    apache.vm.provision "shell", path: "apache.sh"
   end
 
   # Máquina 2: MySQL
@@ -62,15 +66,14 @@ Vagrant.configure("2") do |config|
     mysql.vm.box = "debian/bookworm64"
     mysql.vm.hostname = "Antoniomysql"
     mysql.vm.network "private_network", ip: "192.168.56.11"
-    mysql.vm.provision "shell", path: "provisioning/mysql_provision.sh"
-    mysql.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--nic1", "none"] # Sin acceso a Internet
-    end
+    mysql.vm.provision "shell", path: "mysql.sh"
+   
   end
 end
 
 🖥️ Scripts de Aprovisionamiento
-🔹 apache_provision.sh
+🔹 Apache.sh
+
 #!/bin/bash
 # Actualizar paquetes del sistema
 sudo apt update -y && sudo apt upgrade -y
@@ -83,13 +86,11 @@ sudo systemctl enable apache2
 sudo systemctl start apache2
 
 # Descargar y desplegar la aplicación de gestión de usuarios
-cd /var/www/html
 sudo wget https://informatica.iesalbarregas.com/mod/url/view.php?id=4382 -O app.zip
 sudo unzip app.zip -d app
 sudo chown -R www-data:www-data /var/www/html/app
 
-echo "Servidor Apache configurado y aplicación desplegada correctamente."
-
+echo "✅ Servidor Apache configurado y aplicación desplegada correctamente."
 
 📘 Explicación del script:
 
@@ -103,7 +104,8 @@ Configura permisos para el usuario de Apache.
 
 Inicia el servicio automáticamente.
 
-mysql_provision.sh
+🔹 Mysql.sh
+
 #!/bin/bash
 # Actualizar el sistema
 sudo apt update -y && sudo apt upgrade -y
@@ -123,16 +125,15 @@ sudo mysql -e "FLUSH PRIVILEGES;"
 
 echo "Servidor MySQL configurado y base de datos creada correctamente."
 
+📘 Explicación del Script
 
-📘 Explicación del script:
-
-Instala y arranca el servidor MySQL.
+Instala y arranca el servicio MySQL.
 
 Crea la base de datos gestion_usuarios.
 
-Configura un usuario remoto (appuser) accesible desde el servidor Apache.
+Añade el usuario appuser con acceso desde el servidor Apache.
 
-Otorga privilegios adecuados y aplica los cambios.
+Otorga permisos y aplica los cambios.
 
 📸 Evidencias de Funcionamiento
 ✅ Servidor Apache
