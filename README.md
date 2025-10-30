@@ -52,7 +52,26 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
 
 🧱 Fichero Vagrantfile
   # Máquina 1: Apache y Máquina 2: MySQL
-  
+  "```" 
+config.vm.define "AntonioApache" do |apache|
+    apache.vm.box = "debian/bookworm64"
+    apache.vm.hostname = "AntonioApache"
+    apache.vm.network "forwarded_port", guest: 80, host: 8080
+    apache.vm.network "private_network", ip: "192.168.56.10"
+    apache.vm.provision "shell", path: "Apache.sh"
+    apache.vm.network "public_network", bridge: "enp0s3"
+  end
+
+
+  config.vm.define "AntonioMysql" do |mysql|
+    mysql.vm.box = "debian/bookworm64"
+    mysql.vm.hostname = "AntonioMysql"
+    mysql.vm.network "private_network", ip: "192.168.56.11"
+    mysql.vm.provision "shell", path: "Mysql.sh"
+    mysql.vm.network "public_network"
+  end
+
+  "```" 
 
 🖥️ # Scripts de Aprovisionamiento
 🔹 Apache.sh
