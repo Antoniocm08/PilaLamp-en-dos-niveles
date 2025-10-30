@@ -1,16 +1,22 @@
-# PilaLamp-en-dos-niveles
-🚀 Práctica: Despliegue de Aplicación en Infraestructura de Dos Niveles con Vagrant
-📘 Descripción General
+## 🧱 **Pila LAMP en Dos Niveles**
+### 🚀 Práctica: Despliegue de Aplicación en Infraestructura de Dos Niveles con Vagrant
 
-En esta práctica se ha montado una infraestructura de dos niveles utilizando Vagrant y Debian 12.
-El objetivo es desplegar una aplicación de gestión de usuarios (descargable desde este enlace
-) sobre una arquitectura compuesta por:
+---
 
-Servidor Apache/PHP: encargado de servir la aplicación web.
+## 📘 **Descripción General**
 
-Servidor MySQL: donde reside la base de datos de la aplicación.
+En esta práctica se ha montado una infraestructura **de dos niveles** utilizando **Vagrant** y **Debian 12**.  
+El objetivo es desplegar una aplicación de **gestión de usuarios** (descargable desde [este enlace](https://informatica.iesalbarregas.com/mod/url/view.php?id=4382)) sobre una arquitectura compuesta por:
 
-Ambas máquinas se crean y configuran de forma automática mediante scripts de aprovisionamiento en Bash.
+- 🖥️ **Servidor Apache/PHP:** encargado de servir la aplicación web.  
+- 🗄️ **Servidor MySQL:** donde reside la base de datos de la aplicación.
+
+Ambas máquinas se crean y configuran automáticamente mediante **scripts de aprovisionamiento en Bash**.
+
+---
+
+## 🗂️ **Estructura del Repositorio**
+
 
 🗂️ Estructura del Repositorio
 .
