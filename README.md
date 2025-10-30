@@ -13,7 +13,7 @@ El objetivo es desplegar una aplicación de **gestión de usuarios** (descargabl
 
 Ambas máquinas se crean y configuran automáticamente mediante **scripts de aprovisionamiento en Bash**.
 
----
+
 
 ## 🗂️ **Estructura del Repositorio**
 
@@ -39,7 +39,7 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
 - Git instalado y configurado  
 
 
----
+
 
 ### 🧩 **Estructura de la Infraestructura**
 
@@ -71,28 +71,28 @@ Vagrant.configure("2") do |config|
   end
 end
 
-🖥️ Scripts de Aprovisionamiento
+🖥️ # Scripts de Aprovisionamiento
 🔹 Apache.sh
 
 #!/bin/bash
-# Actualizar paquetes del sistema
+ Actualizar paquetes del sistema
 sudo apt update -y && sudo apt upgrade -y
 
-# Instalar Apache y PHP
+Instalar Apache y PHP
 sudo apt install -y apache2 php libapache2-mod-php php-mysql unzip
 
-# Habilitar Apache y arrancar el servicio
+Habilitar Apache y arrancar el servicio
 sudo systemctl enable apache2
 sudo systemctl start apache2
 
-# Descargar y desplegar la aplicación de gestión de usuarios
+Descargar y desplegar la aplicación de gestión de usuarios
 sudo wget https://informatica.iesalbarregas.com/mod/url/view.php?id=4382 -O app.zip
 sudo unzip app.zip -d app
 sudo chown -R www-data:www-data /var/www/html/app
 
 echo "✅ Servidor Apache configurado y aplicación desplegada correctamente."
 
-📘 Explicación del script:
+📘# Explicación del script:
 
 Actualiza el sistema y paquetes.
 
@@ -107,21 +107,18 @@ Inicia el servicio automáticamente.
 🔹 Mysql.sh
 
 #!/bin/bash
-# Actualizar el sistema
-sudo apt update -y && sudo apt upgrade -y
+sudo apt update -y && sudo apt upgrade -y //Actualizar el sistema
 
-# Instalar MySQL Server
+Instalar MySQL Server                  // instalar mysql
 sudo apt install -y mysql-server
 
-# Habilitar y arrancar el servicio
-sudo systemctl enable mysql
+sudo systemctl enable mysql //Habilitar y arrancar el servicio
 sudo systemctl start mysql
 
-# Crear base de datos y usuario para la aplicación
 sudo mysql -e "CREATE DATABASE gestion_usuarios;"
 sudo mysql -e "CREATE USER 'appuser'@'192.168.56.10' IDENTIFIED BY 'app1234';"
 sudo mysql -e "GRANT ALL PRIVILEGES ON gestion_usuarios.* TO 'appuser'@'192.168.56.10';"
-sudo mysql -e "FLUSH PRIVILEGES;"
+sudo mysql -e "FLUSH PRIVILEGES;"  // Crear base de datos y usuario para la aplicación
 
 echo "Servidor MySQL configurado y base de datos creada correctamente."
 
