@@ -52,7 +52,7 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
 
 🧱 Fichero Vagrantfile
   # Máquina 1: Apache y Máquina 2: MySQL
-  "```" 
+  "
 config.vm.define "AntonioApache" do |apache|
     apache.vm.box = "debian/bookworm64"
     apache.vm.hostname = "AntonioApache"
@@ -71,7 +71,7 @@ config.vm.define "AntonioApache" do |apache|
     mysql.vm.network "public_network"
   end
 
-  "```" 
+  "
 
 🖥️ # Scripts de Aprovisionamiento
 🔹 Apache.sh
