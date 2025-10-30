@@ -72,9 +72,9 @@ config.vm.define "AntonioApache" do |apache|
   end
 ```
 
-🖥️ # Scripts de Aprovisionamiento
+### 🖥️  Scripts de Aprovisionamiento
 
-🔹 Apache.sh
+### 🔹 Apache.sh
  ```ruby
 #!/bin/bash
 # Actualizar paquetes del sistema
@@ -95,7 +95,7 @@ sudo systemctl restart apache2
 echo "✅ Servidor Apache configurado y aplicación desplegada correctamente."
 ```
 
-📘# Explicación del script:
+### 📘 Explicación del script:
 
 Actualiza el sistema y paquetes.
 
@@ -107,7 +107,7 @@ Configura permisos para el usuario de Apache.
 
 Inicia el servicio automáticamente.
 
-🔹 Mysql.sh
+### 🔹 Mysql.sh
  ```ruby
 #!/bin/bash
 
@@ -132,7 +132,7 @@ EOF
 echo "✅ Servidor MySQL configurado y base de datos creada correctamente."
 
 ```
-📘 Explicación del Script
+### 📘 Explicación del Script
 
 Instala y arranca el servicio MySQL.
 
@@ -142,7 +142,8 @@ Añade el usuario appuser con acceso desde el servidor Apache.
 
 Otorga permisos y aplica los cambios.
 
-📸 Evidencias de Funcionamiento
+### 📸 Evidencias de Funcionamiento
+
 ✅ Servidor Apache
 
 ✅ Servidor MySQL
