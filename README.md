@@ -36,7 +36,7 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
 
 - [Vagrant](https://developer.hashicorp.com/vagrant/downloads)  
 - [VirtualBox](https://www.virtualbox.org/)  
-- Git instalado y configurado  
+
 
 
 
@@ -74,7 +74,6 @@ end
 🖥️ # Scripts de Aprovisionamiento
 🔹 Apache.sh
 
-![Script Apache](media/Apache.sh.png)
 
 
 📘# Explicación del script:
