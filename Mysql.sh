@@ -20,3 +20,18 @@ FLUSH PRIVILEGES;
 EOF
 echo "✅ Servidor MySQL configurado y base de datos creada correctamente."
 
+echo "phpmyadmin phpmyadmin/dbconfig-install boolean false" | sudo debconf-set-selections
+echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | sudo debconf-set-selections
+
+# Instalar phpMyAdmin sin interaccion
+sudo apt install -y phpmyadmin
+
+# Habilitar extensiones PHP necesarias
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+
+# Configurar acceso remoto a phpMyAdmin 
+sudo sed -i 's/Require local/Require all granted/' /etc/apache2/conf-available/phpmyadmin.conf
+sudo systemctl restart apache2
+
+echo " Instalacion completada. Accede a phpMyAdmin en http://localhost/phpmyadmin
