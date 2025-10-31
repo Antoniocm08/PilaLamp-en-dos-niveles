@@ -48,7 +48,7 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
 | `AntonioApache`  | Servidor Web (Apache + PHP)        | `antonioapache` | NAT + Privada   | ✅ (solo NAT)     | `8080 → 80`   |
 | `AntonioMysql`   | Servidor de Base de Datos (MySQL)  | `antoniomysql`  | Privada         | ❌                | —             |
 
- Para entrar a mi PhPMyAdmin =
+- Para entrar a mi PhPMyAdmin = http://localhost:8081/phpmyadmin
 ---
 
 🧱 Fichero Vagrantfile
