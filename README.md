@@ -57,7 +57,7 @@ config.vm.define "MarioApache" do |apache|
     apache.vm.box = "debian/bookworm64"
     apache.vm.hostname = "MarioApache"
     apache.vm.network "forwarded_port", guest: 80, host: 8080
-    apache.vm.network "private_network", ip: "192.168.33.10"
+    apache.vm.network "private_network", ip: "192.168.56.10"
     apache.vm.provision "shell", path: "Apache.sh"
     apache.vm.network "public_network", bridge: "enp0s3"
   end
@@ -68,7 +68,7 @@ config.vm.define "MarioApache" do |apache|
     mysql.vm.hostname = "MarioMysql"
     mysql.vm.network "forwarded_port", guest: 3306, host: 8088
     mysql.vm.network "forwarded_port", guest: 80, host: 8089
-    mysql.vm.network "private_network", ip: "192.168.33.11"
+    mysql.vm.network "private_network", ip: "192.168.56.11"
     mysql.vm.provision "shell", path: "Mysql.sh"
   end
 
@@ -161,10 +161,15 @@ Añade el usuario appuser con acceso desde el servidor Apache.
 
 Otorga permisos y aplica los cambios.
 
+Despues intala y arranca PhPMyAdmin
+
+Cuando todo se descarga desactiva el internet
+
 ### 📸 Evidencias de Funcionamiento
 
 ✅ Servidor Apache
 ![Apache](https://github.com/user-attachments/assets/2b3fac5f-bc04-4c4a-97e5-8609877323fb)
+
 
 ✅ Servidor MySQL
 <img width="1897" height="897" alt="Mysql" src="https://github.com/user-attachments/assets/967bc237-9953-41c8-b22e-7ace862b1605" />
