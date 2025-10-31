@@ -4,9 +4,6 @@
 sudo apt update
 sudo apt install -y mariadb-server
 
-#Desactiva el internet, activar despues de la descarga
-//sudo ip route del default
-
 # Habilitar y arrancar el servicio 
 sudo systemctl enable mariadb || systemctl enable mysql
 sudo systemctl start mariadb || systemctl start mysql
@@ -34,4 +31,6 @@ sudo systemctl restart apache2
 sudo sed -i 's/Require local/Require all granted/' /etc/apache2/conf-available/phpmyadmin.conf
 sudo systemctl restart apache2
 
-echo " Instalacion completada. Accede a phpMyAdmin en http://localhost/phpmyadmin
+echo " Instalacion completada. Accede a phpMyAdmin en http://localhost/phpmyadmin "
+#Desactiva el internet, activar despues de la descarga
+sudo ip route del default
