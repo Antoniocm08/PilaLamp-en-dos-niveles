@@ -53,9 +53,9 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
 🧱 Fichero Vagrantfile
   ### Máquina 1: Apache y Máquina 2: MySQL
   ```ruby
-config.vm.define "MarioApache" do |apache|
+config.vm.define "AntonioApache" do |apache|
     apache.vm.box = "debian/bookworm64"
-    apache.vm.hostname = "MarioApache"
+    apache.vm.hostname = "AntonioApache"
     apache.vm.network "forwarded_port", guest: 80, host: 8080
     apache.vm.network "private_network", ip: "192.168.56.10"
     apache.vm.provision "shell", path: "Apache.sh"
@@ -63,14 +63,16 @@ config.vm.define "MarioApache" do |apache|
   end
 
 
-  config.vm.define "MarioMysql" do |mysql|
+  config.vm.define "AntonioMysql" do |mysql|
     mysql.vm.box = "debian/bookworm64"
-    mysql.vm.hostname = "MarioMysql"
-    mysql.vm.network "forwarded_port", guest: 3306, host: 8088
-    mysql.vm.network "forwarded_port", guest: 80, host: 8089
+    mysql.vm.hostname = "AntonioMysql"
+    mysql.vm.network "forwarded_port", guest: 3306, host: 8090
+    mysql.vm.network "forwarded_port", guest: 80, host: 8081
     mysql.vm.network "private_network", ip: "192.168.56.11"
     mysql.vm.provision "shell", path: "Mysql.sh"
+    mysql.vm.network "public_network"
   end
+
 
 ```
 
@@ -120,7 +122,7 @@ sudo apt install -y mariadb-server
 #quita la conexion a internet
 sudo ip route del default
 
-# Habilitar y arrancar el servicio (puede llamarse mysql en algunas versiones)
+# Habilitar y arrancar el servicio 
 sudo systemctl enable mariadb || systemctl enable mysql
 sudo systemctl start mariadb || systemctl start mysql
 
