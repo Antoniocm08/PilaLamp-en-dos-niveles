@@ -164,5 +164,7 @@ Otorga permisos y aplica los cambios.
 ### 📸 Evidencias de Funcionamiento
 
 ✅ Servidor Apache
+![Apache](https://github.com/user-attachments/assets/2b3fac5f-bc04-4c4a-97e5-8609877323fb)
 
 ✅ Servidor MySQL
+<img width="1897" height="897" alt="Mysql" src="https://github.com/user-attachments/assets/967bc237-9953-41c8-b22e-7ace862b1605" />
