@@ -32,5 +32,5 @@ sudo sed -i 's/Require local/Require all granted/' /etc/apache2/conf-available/p
 sudo systemctl restart apache2
 
 echo " Instalacion completada. Accede a phpMyAdmin en http://localhost/phpmyadmin "
-#Desactiva el internet, activar despues de la descarga
+#Desactiva el internet
 sudo ip route del default
