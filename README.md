@@ -171,7 +171,7 @@ Cuando todo se descarga desactiva el internet
 ### 📸 Evidencias de Funcionamiento
 
 ✅ Servidor Apache
-![Apache](https://github.com/user-attachments/assets/2b3fac5f-bc04-4c4a-97e5-8609877323fb)
+<img width="1432" height="1057" alt="Apache" src="https://github.com/user-attachments/assets/2d2bb51f-98c6-4e7c-9eae-d253ae88d999" />
 
 
 ✅ Servidor MySQL
