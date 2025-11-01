@@ -21,14 +21,14 @@ Ambas máquinas se crean y configuran automáticamente mediante **scripts de apr
 🗂️ Estructura del Repositorio
 .
 ├── Vagrantfile
-├── provisioning/
-│   ├── apache_provision.sh
-│   └── mysql_provision.sh
+├──Apache.sh
+├──Mysql.sh
 ├── README.md
-└── media/
-    ├── captura_apache.png
-    ├── captura_mysql.png
-    └── screencast_funcionamiento.mp4
+└── Capturas/
+|   ├── apache.png
+|   ├── mysql.png
+|   
+└── Video
 
 ## ⚙️ **Configuración del Entorno con Vagrant**
 
