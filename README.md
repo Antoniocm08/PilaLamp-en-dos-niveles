@@ -176,3 +176,5 @@ Cuando todo se descarga desactiva el internet
 
 ✅ Servidor MySQL
 <img width="1897" height="897" alt="Mysql" src="https://github.com/user-attachments/assets/967bc237-9953-41c8-b22e-7ace862b1605" />
+
+
